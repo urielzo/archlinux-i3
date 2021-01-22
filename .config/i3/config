@@ -1,0 +1,253 @@
+
+set $mod Mod4
+
+font pango:waffle 9
+
+##### i3-gaps ##############
+for_window [class=".*"] border pixel 0 #*
+gaps inner 10
+gaps outer 1
+gaps bottom 45
+#gaps horizontal 2
+
+################# i3-radius #######################
+smart_borders on
+smart_borders no_gaps
+border_radius 2
+
+# STARTUP
+exec --no-startup-id emacs --daemon
+exec --no-startup-id unclutter -grab
+exec --no-startup-id mpd &
+exec --no-startup-id xsettingsd
+exec --no-startup-id nitrogen --restore &
+exec --no-startup-id glava &
+exec --no-startup-id conky -c ~/.conkyrc &
+exec --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id xsetroot -cursor_name left_ptr &
+exec --no-startup-id ~/.fehbg &
+exec --no-startup-id blurwal --backend feh -m 1 &
+exec --no-startup-id betterlockscreen -l dim
+# Alternative (set last used background)
+#exec --no-startup-id source ~/.fehbg
+
+
+# RELOAD
+exec_always --no-startup-id dunst
+exec_always --no-startup-id xrdb -load ~/.Xresources
+exec_always --no-startup-id picom --config ~/.config/picom.conf
+
+# TRAY APPLICATIONS
+
+#Authentication dialog
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Updater
+exec --no-startup-id pamac-tray
+
+# bluetooth
+#exec --no-startup-id blueberry-tray
+
+# network
+exec --no-startup-id nm-applet
+
+# num lock activated
+exec_always --no-startup-id numlockx on
+
+# volume
+#exec --no-startup-id pasystray
+exec --no-startup-id volumeicon
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+## set workspaces
+set $ws1  "1: "
+set $ws2  "2: "
+set $ws3  "3: "
+set $ws4  "4: "
+set $ws5  "5: "
+set $ws6  "6: "
+
+## six is more than enought!
+#set $ws7  "7: "
+#set $ws8  "8: "
+#set $ws9  ": 9"
+#set $ws10 ": 10"
+
+## switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+#bindsym $mod+7 workspace 7
+#bindsym $mod+8 workspace 8
+#bindsym $mod+9 workspace 9
+#bindsym $mod+0 workspace 10
+
+## next/previous workspace
+#bindsym $alt+Control+Right workspace next
+#bindsym $alt+Control+Left workspace prev
+
+## move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+#bindsym $mod+Shift+7 move container to workspace 7
+#bindsym $mod+Shift+8 move container to workspace 8
+#bindsym $mod+Shift+9 move container to workspace 9
+#bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+bindsym $mod+shift+x exec betterlockscreen -l dim
+
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Really exit?' -b 'Yes' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Plasma compatibility improvements
+for_window [title="archlinux — Plasma"] kill; floating enable; border none
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
+
+# window rules, you can find the window class using xprop
+assign [class=termite] 2
+assign [class=Firefox|Transmission-gtk] 1
+assign [class=Thunar|File-roller] 3
+assign [class=Evince|Geany|Gucharmap|Soffice|libreoffice*] 4
+assign [class="(?i)Audacity|mplayer|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape"] 5
+assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 5
+assign [class="(?i)pcmanfm"] 3
+assign [title="ranger"] 3
+assign [title="htop"] 5
+assign [title="eDEX-UI"] 5
+assign [window_role="browser"] 1
+
+for_window [class="(?i)URxvt|polybar|xfd|mplayer|xfce4-terminal|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|pulseaudio-equalizer"] floating enable
+for_window [class=URxvt|xfce4-terminal|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+
+# SCREENSHOT
+set $shots ~/pictures/screenshots
+
+#bindsym $mod+Print exec maim --hidecursor $shots/$(date +%s).png
+bindsym $mod+Print exec --no-startup-id scrot -e 'feh $f -x' -d 10 & notify-send -i /usr/share/icons/Tango/apps/scalable/digikam.svg " Screenshot "
+bindsym $mod+Shift+Print exec feh $(last $shots)
+
+bindsym $mod+p exec maim --hidecursor $shots/$(date +%s).png
+bindsym $mod+Shift+p exec feh $(last $shots)
+
+# CAST
+set $casts ~/videos/casts
+
+bindsym $mod+F12       exec ~/bin/cast
+#bindsym $mod+Shift+F12 exec
+
+bindsym $mod+F11       exec pkill ffmpeg
+bindsym $mod+Shift+F11 exec ffplay -loop 0 $(last $casts)
+

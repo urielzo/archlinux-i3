@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/uriel/.cache/blurwal/frame-10.jpg' 

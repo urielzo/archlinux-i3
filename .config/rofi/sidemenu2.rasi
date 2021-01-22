@@ -1,0 +1,218 @@
+configuration {
+	me-select-entry:	"MouseSecondary";
+	me-accept-entry:	"MousePrimary";
+	/* run-display-format: "{name}"; */
+	scroll-method: 1;
+  show-icons: true;
+  sidebar-mode: true;
+  kb-custom-1: "";
+  kb-custom-2: "";
+  kb-custom-3: "";
+  kb-custom-4: "";
+  kb-custom-5: "";
+  kb-custom-6: "";
+  kb-custom-7: "";
+  kb-custom-8: "";
+  kb-custom-9: "";
+  kb-custom-10: "";
+  kb-select-1: "Alt+1";
+  kb-select-2: "Alt+2";
+  kb-select-3: "Alt+3";
+  kb-select-4: "Alt+4";
+  kb-select-5: "Alt+5";
+  kb-select-6: "Alt+6";
+  kb-select-7: "Alt+7";
+  kb-select-8: "Alt+8";
+  kb-select-9: "Alt+9";
+  kb-select-10: "Alt+0";
+}
+
+* {
+
+	/* COLORS */
+
+  /* BLACK */
+  BLACK: #171a1f; /* barra vertical color */
+  LBLACK: #161616;
+
+  /* RED */
+  RED: #93222b;
+  LRED: #b6333f;
+
+  /* WHITE */
+  WHITE: #d6cfc9; /* foreground color */
+  LWHITE: #f8f8f6;
+
+  /* GOLD */
+  GOLD: #b18e68;
+  LGOLD: #e1b084;
+
+  /* GREY */
+  GREY: #e1b084;
+  LGREY: #bcb6b7;
+  TRANSPARENT: #00000000;
+	background: #0e0e0eFF; /* BLACK */
+
+	/* HIGHLIGHT */
+	HIGHLIGHT: #131519;
+	DHIGHLIGHT: #171a1f;
+
+
+	background: @BLACK;
+	background-color: @BLACK;
+	foreground: @WHITE;
+	selected: @LRED;
+	selected-foreground: #d6cfc9; /* foreground selected */
+
+	/* TEXT */
+	font:	"terra 10";
+  text-color: @foreground;
+
+	/* PADDING */
+	margin:	0px;
+	border:	0px;
+	padding: 0px;
+	spacing: 0px;
+	elementpadding: 3px 0px; /* 0 =X 2=Y */
+	elementmargin: 0px 5px;  /* separacion entre lineas 0=Y 2=X */
+	listmargin:	-12px 2px 0px -10px; /* MUEVE LA LISTA COMPLETA X & Y */
+
+	/* ////	SIZE	//// */
+	windowwidth:	18%;
+	buttonwidth:	3ch;
+	lines:			20;
+	fixed-height:	false;
+	windowheight: 100%;
+
+	/* ////	POSITION	//// */
+	location:		west;
+	anchor:			west;
+	x-offset:		0px;
+	y-offset:		0px;
+
+	/* ////	LAYOUT	//// */
+	scrollbar:		false;
+	buttonpadding:	14px 0ch;
+	button-bg:		#171a1f;
+	dynamic:		true;
+	menustyle: [sb-mainbox];
+	background-color: #131519;
+	font: "Roboto 12";
+}
+
+
+window {
+	children: @menustyle;
+	width: @windowwidth;
+	height: @windowheight;
+	/* border-radius: 0px 25px 25px 0px; */
+}
+/* submenu-style */
+sb-mainbox {
+	orientation:	horizontal;
+	children:		[ mode-switcher, vertibox ];
+	background-color: #00000000;
+}
+
+horibox {
+	orientation:	horizontal;
+	children:		[ listview, mode-switcher ];
+	background-color: #00000000;
+}
+
+mode-switcher {
+	orientation:	vertical;
+	height: @windowheight;
+	background-color: @background;
+}
+
+button {
+	horizontal-align:	0;
+	padding:		@buttonpadding;
+	width:			@buttonwidth;
+	background-color:	@button-bg;
+	expand:			false;
+}
+
+vertibox {
+	orientation:	vertical;
+	children:		[ inputbar, listview ];
+	background-color:	#00000000;
+}
+
+prompt {
+	enabled:		false;
+	background-color: @DHIGHLIGHT;
+	/* border-radius: 10px; */
+	margin: 0px 0px 0px 100px;
+}
+
+inputbar {
+	padding: @elementpadding;
+	margin: @elementmargin;
+	width: @elementwidth;
+	background-color: @HIGHLIGHT;
+}
+
+case-indicator {
+	background-color: @HIGHLIGHT;
+}
+
+entry {
+	background-color: @DHIGHLIGHT;
+	text-color: @WHITE;
+	placeholder-color: @WHITE;
+	expand: true;
+	padding: 7px 0px 0px 0px;
+	horizontal-align: 0.1;
+	/* vertical-align: -0.01; */
+	margin: 10px 10px 20px 10px;
+	border-radius: 5px;
+	blink: false;
+	font: "terra 10";
+}
+
+listview {
+	margin:			@listmargin;
+}
+
+
+boxdummy {
+	enabled:		false;
+	orientation:	vertical;
+	expand:			false;
+	children:		[ textboxdummy ];
+
+}
+
+textboxdummy {
+	str:			"		";
+}
+
+
+element, inputbar, textboxdummy {
+	padding:		@elementpadding;
+	margin:			@elementmargin;
+	width:			@elementwidth;
+	font: "terra 20";
+}
+element.normal.active,
+element.alternate.active {
+	background-color:	@HIGHLIGHT;
+	text-color:			@selected-foreground;
+}
+element.selected,
+button.selected {
+	background-color:	@DHIGHLIGHT;
+	text-color:			#ff0000;
+	/* border-radius: 15px 5px 5px 15px; */
+}
+element.normal.urgent,
+element.alternate.urgent {
+	background-color:	@urgent-background;
+	text-color:			@urgent-foreground;
+}
+element.selected.urgent {
+	background-color:	@selected-urgent-background;
+	text-color:			@selected-urgent-foreground;
+}

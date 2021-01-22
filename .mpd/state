@@ -1,0 +1,47 @@
+sw_volume: 100
+audio_device_state:1:Pulseaudio
+audio_device_state:1:my_fifo
+state: pause
+current: 8
+time: 4.528000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:favorites/leon-larregui-brillas-video-oficial.mp3
+1:favorites/leon-larregui-locos-video-oficial.mp3
+2:Molotov/molotov-rap-soda-y-bohemia.mp3
+3:favorites/zoe-nunca-mtv-unplugged.mp3
+4:favorites/anejo-w.mp3
+5:favorites/leon-larregui-como-tu-magic-music-box-video-oficial.mp3
+6:xd/is-this.mp3
+7:xd/asus-rog-strix-helios.mp3
+8:DHARIUS/dharius-te-gustan-malos-video-oficial.mp3
+9:favorites/leon-larregui-como-tu-magic-music-box-video-oficial.mp3
+10:favorites/leon-larregui-brillas-video-oficial.mp3
+11:favorites/leon-larregui-locos-video-oficial.mp3
+12:xd/is-this.mp3
+13:favorites/leon-larregui-como-tu-magic-music-box-video-oficial.mp3
+14:favorites/leon-larregui-brillas-video-oficial.mp3
+15:favorites/leon-larregui-locos-video-oficial.mp3
+16:favorites/anejo-w.mp3
+17:favorites/leon-larregui-como-tu-magic-music-box-video-oficial.mp3
+18:favorites/leon-larregui-brillas-video-oficial.mp3
+19:favorites/leon-larregui-locos-video-oficial.mp3
+20:favorites/anejo-w.mp3
+21:Molotov/molotov-rap-soda-y-bohemia.mp3
+22:Molotov/chinga-tu-madre.mp3
+23:Molotov/matate-tete.mp3
+24:Molotov/puto.mp3
+25:Molotov/chandwich-a-la-chichona.mp3
+26:Molotov/rastaman-dita.mp3
+27:Molotov/el-carnal-de-las-estrellas.mp3
+28:Molotov/molotov-que-no-te-haga-bobo-jacobo.mp3
+29:xd/is-this.mp3
+30:xd/the-first-rog-chassis.mp3
+31:BURDEL-KING/si-no-follas-no-entretengas.mp3
+playlist_end

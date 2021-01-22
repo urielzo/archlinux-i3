@@ -1,0 +1,30 @@
+[global_config]
+  enabled_plugins = InactivityWatch, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
+  title_use_system_font = False
+  title_font = Cozette Medium 9
+[keybindings]
+[profiles]
+  [[default]]
+    allow_bold = False
+    audible_bell = True
+    background_color = "#15171c"
+    background_darkness = -0.1
+    cursor_blink = False
+    cursor_color = "#ABB2BF"
+    font = terra Medium 9
+    foreground_color = "#ABB2BF"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#15171c:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#abb2bf:#4b5263:#be5046:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#3e4452"
+    use_system_font = False
+    background_image = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
