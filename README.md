@@ -8,11 +8,10 @@
 ## dirty
 ![dirty](/preview/dirty.png)
 
+
 ## Video 
-- **https://youtu.be/eo-mOZSqEqs <br />
 
-
-https://youtu.be/eo-mOZSqEqs
+[![ArchLinux ](https://img.youtube.com/vi/eo-mOZSqEqs/0.jpg)](https://www.youtube.com/watch?v=eo-mOZSqEqs)
 
 ## Details
 - **Distro** archlinux ;)
